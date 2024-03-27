@@ -8,11 +8,20 @@
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.choiminseok.androidstudiotemplate.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
-
     <applicationListeners>
         <listener class="com.github.choiminseok.androidstudiotemplate.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <actions>
+        <action id="com.github.choiminseok.androidstudiotemplate.ui.action.MviScreenTemplateAction"
+                class="com.github.choiminseok.androidstudiotemplate.ui.action.MviScreenTemplateAction" text="Create MVI Screen"
+                description="화면 생성">
+            <add-to-group group-id="NewGroup" anchor="first"/>
+        </action>
+        <action id="com.github.choiminseok.androidstudiotemplate.ui.action.ListUiScreenTemplateAction"
+                class="com.github.choiminseok.androidstudiotemplate.ui.action.ListUiScreenTemplateAction" text="Create ListUi Screen"
+                description="ListUi 화면 생성">
+            <add-to-group group-id="NewGroup" anchor="after" relative-to-action="com.github.choiminseok.androidstudiotemplate.ui.action.MviScreenTemplateAction"/>
+        </action>
+    </actions>
 </idea-plugin>
